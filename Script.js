@@ -1,5 +1,5 @@
 // REPLACE EVERYTHING IN script.js WITH THIS
-const API_KEY = "PASTE_YOUR_GEMINI_API_KEY_HERE"; // Did you get this from Google AI Studio?
+const API_KEY = "AIzaSyAPQxBgDDrV2dOxXIHDeFYVJnHy-RejgP8"; // Did you get this from Google AI Studio?
 const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 async function askSiren() {
