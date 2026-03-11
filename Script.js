@@ -12,8 +12,12 @@ async function askSiren() {
         return;
     }
 
-    // Show user message immediately
-    container.innerHTML += `<div class="msg user">${text}</div>`;
+    // Show user message immediately - OPTIMIZED
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg user';
+    userMsg.textContent = text;
+    container.appendChild(userMsg);
+    
     inputField.value = "";
     container.scrollTop = container.scrollHeight;
 
@@ -36,8 +40,11 @@ async function askSiren() {
         const data = await response.json();
         const aiResponse = data.candidates[0].content.parts[0].text;
 
-        // Show Bot Message
-        container.innerHTML += `<div class="msg bot">${aiResponse}</div>`;
+        // Show Bot Message - OPTIMIZED
+        const botMsg = document.createElement('div');
+        botMsg.className = 'msg bot';
+        botMsg.textContent = aiResponse;
+        container.appendChild(botMsg);
         
         // Save the Kill!
         let kills = parseInt(localStorage.getItem('siren_kills')) || 0;
@@ -48,4 +55,4 @@ async function askSiren() {
         alert("System Crash: " + error.message);
     }
     container.scrollTop = container.scrollHeight;
-            }
+}
