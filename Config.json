@@ -1,1 +1,5 @@
-
+// config.js
+const CONFIG = {
+    // Leave this EMPTY when you push to GitHub
+        API_KEY: "" 
+        };
