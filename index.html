@@ -23,5 +23,28 @@
         <button onclick="askSiren()">Send</button>
     </div>
     <script src="script.js"></script>
+    let conversationArchive = []; // This stores your "Agents"
+
+function sirenMixer(newMessage) {
+    conversationArchive.push(newMessage);
+    
+    // Once we hit 10 messages, the Tournament triggers!
+    if (conversationArchive.length >= 10) {
+        console.log("ALERT: 10 AGENTS FOUND. STARTING TOURNAMENT...");
+        
+        // Stage 1: The 5-Winner Pairings
+        let stage1 = [];
+        for (let i = 0; i < 10; i += 2) {
+            // Logic: The longer message "kills" the shorter one
+            let winner = conversationArchive[i].length >= conversationArchive[i+1].length 
+                         ? conversationArchive[i] : conversationArchive[i+1];
+            stage1.push(winner);
+        }
+
+        // Reset the archive and keep the winners as the new "Core"
+        conversationArchive = stage1; 
+        alert("TOURNAMENT COMPLETE: 10 messages funneled to 5. Efficiency Up!");
+    }
+}
 </body>
   </html>
